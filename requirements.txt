@@ -3,3 +3,5 @@ pandas
 sentence-transformers
 scikit-learn
 openpyxl
+matplotlib
+seaborn
