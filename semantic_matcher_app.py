@@ -35,7 +35,28 @@ def load_dataframe(file):
         return None
 
 # UI
+# Version info
+APP_VERSION = "v1.0.0"
+RELEASE_DATE = "2025-08-08"
+FEATURES = [
+    "Multi-file upload (2 or more) with pairwise comparison",
+    "Column selection per file",
+    "Optional location column match boost (+0.05 to score)",
+    "Keyword-based explanation generator for matches",
+    "Similarity heatmap visualization (top 20x20)",
+    "Progress bar during matching",
+    "Threshold and top-N match controls",
+    "Downloadable CSV results",
+    "Duplicate best-match filtering for File A rows"
+]
+
 st.title("🔎 Enhanced Semantic Matching App")
+st.markdown("Match semantically related rows between multiple files using AI, with optional location matching boost and keyword explanations.")
+
+# Show version + features
+with st.expander(f"📌 App Version: {APP_VERSION}  |  Released: {RELEASE_DATE}", expanded=False):
+    for feat in FEATURES:
+        st.markdown(f"- {feat}")
 st.markdown("Match semantically related rows between multiple files using AI, with optional location matching boost and keyword explanations.")
 
 uploaded_files = st.file_uploader("Upload CSV or XLSX files (2 or more)", type=["csv", "xlsx"], accept_multiple_files=True)
